@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Preloader from "@/components/layout/Preloader";
 import JsonLd from "@/components/seo/JsonLd";
 import WorkshopPopup from "@/components/workshops/WorkshopPopup";
 import { pageMetadata } from "@/lib/seo";
@@ -34,7 +33,6 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider key={locale} messages={messages} locale={locale}>
       <JsonLd locale={locale} />
-      <Preloader />
       <div id="site-content">
         <div className="grain-overlay max-lg:hidden" aria-hidden />
         <Navbar />

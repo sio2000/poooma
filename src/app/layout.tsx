@@ -1,6 +1,7 @@
 import "./globals.css";
 import { rootMetadata } from "@/lib/seo";
 import { PRELOADER_STORAGE_KEY } from "@/lib/preloader";
+import Preloader from "@/components/layout/Preloader";
 
 export const metadata = rootMetadata;
 
@@ -37,6 +38,7 @@ export default function RootLayout({
             className="w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-[0_0_30px_rgba(176,154,232,0.55)]"
           />
         </div>
+        <Preloader />
         {children}
       </body>
     </html>
