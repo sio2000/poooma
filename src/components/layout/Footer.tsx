@@ -156,6 +156,12 @@ export default function Footer() {
 
         <div className="border-t border-white/6 py-7 flex flex-col sm:flex-row flex-wrap justify-center sm:justify-between items-center gap-3 text-center sm:text-left">
           <p className="text-[11px] text-white/22 font-light tracking-wide">{t("copyright")}</p>
+          <Link
+            href={lp("/privacy")}
+            className="text-[11px] text-white/30 hover:text-gold-200 underline underline-offset-2 transition-colors font-light tracking-wide"
+          >
+            {locale === "en" ? "Privacy Policy" : "Πολιτική Απορρήτου"}
+          </Link>
           <p className="text-[11px] text-white/22 font-light tracking-wide">
             {t("poweredBy")}{" "}
             <a

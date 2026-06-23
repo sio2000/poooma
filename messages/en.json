@@ -26,13 +26,14 @@
   "hero": {
     "motto": "Speak English the way you dream",
     "tagline": "Boutique Transformation Academy",
-    "headline1": "Your voice",
-    "headline2": "deserves to",
-    "headline3": "be heard.",
+    "headline1": "Professional",
+    "headline2": "English",
+    "headline3": "with confidence.",
     "subtext": "We don't teach English. We unlock expression, confidence, and professional presence.",
     "cta1": "Begin Your Journey",
     "cta2": "View Programs",
     "whyName": "why we named it The Pouma Academy",
+    "quotesLabel": "Sound familiar?",
     "scrollHint": "Discover"
   },
   "intro": {
@@ -117,6 +118,13 @@
     "body": "Your goals. Your pace. Your needs. You receive different materials, different guidance, a different approach.",
     "learnMore": "Learn more",
     "cardLabel": "Sample program",
+    "cardSteps": [
+      "Assessment & Goals",
+      "Personalized Plan",
+      "Materials Made for You",
+      "Deep Feedback",
+      "Visible Progress"
+    ],
     "cardQuote": "No two programs are ever the same.",
     "groupSizeLabel": "Group size",
     "groupSize": "3–4 max",

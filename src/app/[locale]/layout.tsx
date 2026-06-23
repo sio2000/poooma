@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 import JsonLd from "@/components/seo/JsonLd";
+import WorkshopPopup from "@/components/workshops/WorkshopPopup";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <WorkshopPopup />
       </div>
     </NextIntlClientProvider>
   );

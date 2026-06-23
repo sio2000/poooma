@@ -11,13 +11,7 @@ export default function PersonalizationSection() {
   const inView = useInView(ref, { once: true, margin: "-12% 0px" });
 
   const items = t.raw("items") as { title: string; desc: string }[];
-  const cardSteps = [
-    "Αξιολόγηση & Στόχοι",
-    "Εξατομικευμένο Πλάνο",
-    "Υλικό Ειδικά για Σένα",
-    "Βαθιά Ανατροφοδότηση",
-    "Ορατή Πρόοδος",
-  ];
+  const cardSteps = t.raw("cardSteps") as string[];
 
   return (
     <section className="relative py-16 md:py-20 px-6 bg-ivory overflow-hidden">

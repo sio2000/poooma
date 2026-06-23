@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 import PremiumButton from "@/components/ui/PremiumButton";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
@@ -22,6 +22,8 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 100], [0, 1]);
   const borderOpacity = useTransform(scrollY, [0, 100], [0, 1]);
+  const [scrolled, setScrolled] = useState(false);
+  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 80));
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -49,6 +51,11 @@ export default function Navbar() {
 
   const isHome =
     pathname === `/${locale}` || pathname === `/${locale}/`;
+
+  // Pages with a dark, full-bleed hero need light nav text until the user
+  // scrolls and the (light) glass background fades in.
+  const darkHero = isHome || pathname.includes("/workshop/");
+  const onDark = darkHero && !scrolled;
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isHome) {
@@ -84,7 +91,7 @@ export default function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05, rotate: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className="relative w-28 h-28 sm:w-[7rem] sm:h-[7rem] flex-shrink-0"
+              className="relative w-[4.5rem] h-[4.5rem] sm:w-[7rem] sm:h-[7rem] flex-shrink-0"
             >
               <Image
                 src="/finallogo.png"
@@ -97,10 +104,20 @@ export default function Navbar() {
               <LogoSparkle />
             </motion.div>
             <div className="block leading-tight min-w-0">
-              <span className="font-display text-[15px] sm:text-base md:text-lg font-semibold text-lav-600 tracking-wide block leading-snug">
+              <span
+                className={cn(
+                  "font-display text-[15px] sm:text-base md:text-lg font-semibold tracking-wide block leading-snug transition-colors duration-300",
+                  onDark ? "text-white" : "text-lav-600"
+                )}
+              >
                 {brand("name")}
               </span>
-              <span className="font-script text-[13px] sm:text-sm text-plum block leading-tight mt-0.5 sm:mt-1 pl-0.5 whitespace-normal">
+              <span
+                className={cn(
+                  "font-script text-[13px] sm:text-sm block leading-tight mt-0.5 sm:mt-1 pl-0.5 whitespace-normal transition-colors duration-300",
+                  onDark ? "text-white/75" : "text-plum"
+                )}
+              >
                 {brand("tagline")}
               </span>
             </div>
@@ -117,20 +134,32 @@ export default function Navbar() {
                 onMouseEnter={() => setHovered(link.href)}
                 className={cn(
                   "relative px-4 py-2.5 text-sm font-medium tracking-wide rounded-xl transition-colors duration-300",
-                  isActive(link.href) ? "text-lav-600" : "text-plum/45 hover:text-plum"
+                  isActive(link.href)
+                    ? onDark
+                      ? "text-white"
+                      : "text-lav-600"
+                    : onDark
+                      ? "text-white/75 hover:text-white"
+                      : "text-plum/45 hover:text-plum"
                 )}
               >
                 {hovered === link.href && (
                   <motion.span
                     layoutId="nav-hover-pill"
-                    className="absolute inset-0 bg-lav-50/90 rounded-xl border border-lav-100"
+                    className={cn(
+                      "absolute inset-0 rounded-xl border",
+                      onDark ? "bg-white/10 border-white/20" : "bg-lav-50/90 border-lav-100"
+                    )}
                     transition={{ type: "spring", stiffness: 450, damping: 34 }}
                   />
                 )}
                 {isActive(link.href) && (
                   <motion.span
                     layoutId="nav-active-dot"
-                    className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-lav-500"
+                    className={cn(
+                      "absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full",
+                      onDark ? "bg-gold-300" : "bg-lav-500"
+                    )}
                   />
                 )}
                 <span className="relative z-10">{link.label}</span>
@@ -154,16 +183,16 @@ export default function Navbar() {
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: EASE_LUXURY }}
-              className="w-5 h-[1.5px] bg-plum block origin-center"
+              className={cn("w-5 h-[1.5px] block origin-center", onDark && !menuOpen ? "bg-white" : "bg-plum")}
             />
             <motion.span
               animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-              className="w-4 h-[1.5px] bg-plum block self-end"
+              className={cn("w-4 h-[1.5px] block self-end", onDark && !menuOpen ? "bg-white" : "bg-plum")}
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: EASE_LUXURY }}
-              className="w-5 h-[1.5px] bg-plum block origin-center"
+              className={cn("w-5 h-[1.5px] block origin-center", onDark && !menuOpen ? "bg-white" : "bg-plum")}
             />
           </button>
         </div>

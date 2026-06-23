@@ -2,7 +2,6 @@ import HeroSection from "@/components/sections/HeroSection";
 import IntroSection from "@/components/sections/IntroSection";
 import RevealStatement from "@/components/sections/RevealStatement";
 import RevealBridge from "@/components/sections/RevealBridge";
-import { HomeSectionsWithQuotes } from "@/components/sections/ScatteredScrollQuotes";
 import DimitraVideosSection from "@/components/sections/DimitraVideosSection";
 import PhilosophySection from "@/components/sections/PhilosophySection";
 import PersonalizationSection from "@/components/sections/PersonalizationSection";
@@ -18,20 +17,18 @@ export default function HomePage() {
     <>
       <HeroSection />
       <IntroSection />
-      <HomeSectionsWithQuotes>
-        <RevealStatement namespace="reveal" />
-        <RevealBridge />
-        <RevealStatement namespace="reveal2" />
-        <CommunicationSection />
-        <MethodSection />
-        <PhilosophySection />
-        <PersonalizationSection />
-        <DimitraVideosSection />
-        <PumaStory />
-        <DifferenceSection />
-        <TestimonialsSection />
-        <CtaSection />
-      </HomeSectionsWithQuotes>
+      <RevealStatement namespace="reveal" />
+      <RevealBridge />
+      <RevealStatement namespace="reveal2" />
+      <CommunicationSection />
+      <MethodSection />
+      <PhilosophySection />
+      <PersonalizationSection />
+      <DimitraVideosSection />
+      <PumaStory />
+      <DifferenceSection />
+      <TestimonialsSection />
+      <CtaSection />
     </>
   );
 }
