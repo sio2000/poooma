@@ -31,7 +31,13 @@ export function validateAdminCredentials(email: string, password: string): boole
   const expectedEmail = getAdminEmail();
 
   if (!expectedPassword) {
-    if (process.env.NODE_ENV === "production") return false;
+    if (process.env.NODE_ENV === "production") {
+      console.error(
+        "[admin-auth] Login blocked: ADMIN_PASSWORD is not set in this environment. " +
+          "Add ADMIN_EMAIL, ADMIN_PASSWORD and ADMIN_SESSION_SECRET in Netlify → Site configuration → Environment variables, then redeploy."
+      );
+      return false;
+    }
     return (
       email.trim().toLowerCase() === expectedEmail &&
       password === "dev-only-change-me"
@@ -39,6 +45,10 @@ export function validateAdminCredentials(email: string, password: string): boole
   }
 
   if (process.env.NODE_ENV === "production" && !process.env.ADMIN_SESSION_SECRET) {
+    console.error(
+      "[admin-auth] Login blocked: ADMIN_SESSION_SECRET is not set in this environment. " +
+        "Add it in Netlify → Site configuration → Environment variables, then redeploy."
+    );
     return false;
   }
 

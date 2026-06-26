@@ -28,7 +28,7 @@ export default function HeroSection() {
         </motion.h2>
 
         {/* Three columns on desktop: photo · headline · programs + workshop. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.78fr_0.95fr] gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.78fr_0.95fr] gap-8 lg:gap-10 items-stretch">
           {/* LEFT — photo */}
           <div className="order-2 lg:order-1">
             <HeroPhotoPanel />
@@ -60,7 +60,7 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            <div className="mb-2 space-y-0.5">
+            <div className="mb-6 space-y-0.5">
               {lines.map((line, i) => (
                 <div key={i} className="overflow-hidden py-0.5">
                   <motion.h1

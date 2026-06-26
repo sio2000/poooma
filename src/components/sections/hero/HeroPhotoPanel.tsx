@@ -15,7 +15,7 @@ export default function HeroPhotoPanel() {
       initial={{ opacity: 0, y: 22 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay: 0.25, ease: EASE_LUXURY }}
-      className="relative w-full max-w-md sm:max-w-lg mx-auto lg:mx-0 lg:max-w-none pb-24 lg:pb-0"
+      className="relative w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:max-w-none pb-24 lg:pb-0"
     >
       {/* Soft decorative glow behind the frame */}
       <div className="absolute -top-10 -left-8 w-44 h-44 rounded-full bg-lav-400/25 blur-3xl -z-10" aria-hidden />
