@@ -34,7 +34,11 @@
     "cta2": "View Programs",
     "whyName": "why we named it The Pouma Academy",
     "quotesLabel": "Sound familiar?",
-    "scrollHint": "Discover"
+    "scrollHint": "Discover",
+    "photoBadge": "Communication Coach",
+    "founderIntro1": "Communication coach with 19 years of experience.",
+    "founderIntro2": "I teach you to express yourself in English with confidence.",
+    "programsLabel": "Course Programs"
   },
   "intro": {
     "eyebrow": "Why The Pouma Academy",

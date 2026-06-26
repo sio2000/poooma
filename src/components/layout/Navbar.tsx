@@ -6,7 +6,6 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
-import PremiumButton from "@/components/ui/PremiumButton";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import LogoSparkle from "@/components/ui/LogoSparkle";
 import { X } from "lucide-react";
@@ -53,8 +52,9 @@ export default function Navbar() {
     pathname === `/${locale}` || pathname === `/${locale}/`;
 
   // Pages with a dark, full-bleed hero need light nav text until the user
-  // scrolls and the (light) glass background fades in.
-  const darkHero = isHome || pathname.includes("/workshop/");
+  // scrolls and the (light) glass background fades in. The homepage hero is
+  // light, so it follows the default (dark-text) nav styling.
+  const darkHero = pathname.includes("/workshop/");
   const onDark = darkHero && !scrolled;
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -169,9 +169,6 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-5">
             <LanguageSwitcher />
-            <PremiumButton href={lp("/contact")} variant="primary" size="md">
-              {t("bookSession")}
-            </PremiumButton>
           </div>
 
           <button
@@ -259,13 +256,6 @@ export default function Navbar() {
                 className="flex flex-col gap-6 border-t border-white/10 pt-8 mt-2"
               >
                 <LanguageSwitcher variant="mobile" />
-                <Link
-                  href={lp("/contact")}
-                  onClick={() => setMenuOpen(false)}
-                  className="w-full text-center py-4 rounded-2xl bg-lav-600 text-white font-semibold text-sm shadow-glow active:scale-[0.98] transition-transform"
-                >
-                  {t("bookSession")}
-                </Link>
               </motion.div>
             </div>
           </motion.div>

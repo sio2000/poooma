@@ -26,7 +26,7 @@ export default function IntroSection() {
   const t = useTranslations("intro");
   const locale = useLocale();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const cards = t.raw("cards") as IntroCard[];
 
   return (
