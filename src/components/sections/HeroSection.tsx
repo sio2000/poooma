@@ -22,7 +22,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE_LUXURY }}
-          className="font-script text-center text-[clamp(2.2rem,5vw,3.5rem)] text-plum mb-6 lg:mb-8"
+          className="font-display font-semibold tracking-wide text-center text-[clamp(2.1rem,4.6vw,3.2rem)] text-plum mb-6 lg:mb-8"
         >
           {tBrand("name")}
         </motion.h2>

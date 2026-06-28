@@ -74,18 +74,34 @@ export default function HeroProgramsPanel() {
           >
             <Link
               href={`/${locale}/programs`}
-              className="group flex items-center gap-4 rounded-2xl bg-white/85 backdrop-blur-md border border-lav-100 px-5 py-4 shadow-soft hover:shadow-medium hover:border-lav-300 hover:-translate-y-0.5 transition-all duration-300"
+              className="group relative flex items-center gap-4 overflow-hidden rounded-2xl bg-white/90 backdrop-blur-md border-2 border-lav-100 px-5 py-4 shadow-soft transition-all duration-300 hover:border-gold-400 hover:bg-gold-50/60 hover:shadow-gold-glow hover:-translate-y-1"
             >
-              <span className={`flex-shrink-0 h-2 w-2 rounded-full ${PATH_ACCENT[key]}`} aria-hidden />
-              <span className="flex-1 min-w-0">
-                <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-lav-600/80 mb-0.5">
+              {/* Gold sweep that wipes across on hover — matches the intro-cards effect */}
+              <span
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold-300/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                aria-hidden
+              />
+              {/* Top accent bar grows in on hover */}
+              <span
+                className="pointer-events-none absolute left-0 top-0 h-[3px] w-full origin-left scale-x-0 bg-gradient-to-r from-gold-400 to-gold-300 transition-transform duration-400 ease-out group-hover:scale-x-100"
+                aria-hidden
+              />
+
+              <span
+                className={`relative flex-shrink-0 h-2.5 w-2.5 rounded-full ${PATH_ACCENT[key]} transition-transform duration-300 group-hover:scale-125`}
+                aria-hidden
+              />
+              <span className="relative flex-1 min-w-0">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-lav-600/80 mb-0.5 transition-colors duration-300 group-hover:text-gold-600">
                   {tp(`${key}.number`)} · {tp(`${key}.tag`)}
                 </span>
-                <span className="block font-sans font-semibold text-base sm:text-lg text-plum leading-snug truncate">
+                <span className="block font-sans font-bold text-base sm:text-lg text-plum leading-snug truncate">
                   {tp(`${key}.title`)}
                 </span>
               </span>
-              <ArrowIcon className="w-4 h-4 text-lav-500 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+              <span className="relative flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-lav-50 text-lav-500 transition-all duration-300 group-hover:bg-gold-400 group-hover:text-white group-hover:scale-110">
+                <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
             </Link>
           </motion.li>
         ))}

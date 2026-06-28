@@ -120,6 +120,29 @@ export default function Navbar() {
               >
                 {brand("tagline")}
               </span>
+              <span className="relative inline-block mt-1 pl-0.5">
+                <span
+                  className={cn(
+                    "font-sans text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] transition-colors duration-300",
+                    onDark ? "text-gold-300" : "text-gold-500"
+                  )}
+                >
+                  {brand("sparkle")}
+                </span>
+                <motion.span
+                  aria-hidden
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: [0, 1] }}
+                  transition={{
+                    duration: 1,
+                    ease: EASE_LUXURY,
+                    delay: 0.8,
+                    repeat: Infinity,
+                    repeatDelay: 2.2,
+                  }}
+                  className="absolute left-0.5 -bottom-1 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-gold-500 via-gold-300 to-gold-500 shadow-[0_0_8px_rgba(245,179,53,0.9)]"
+                />
+              </span>
             </div>
           </Link>
 

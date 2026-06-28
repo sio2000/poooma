@@ -28,7 +28,7 @@ export default function HeroPhotoPanel() {
       <div className="relative w-full">
         <div className="relative w-full aspect-[128/229] rounded-[2rem] overflow-hidden shadow-strong ring-1 ring-lav-200/50">
           <Image
-            src="/herosectionpik.png"
+            src="/newherosectionpik.png"
             alt={`${founderName} — The Pouma Academy`}
             fill
             priority

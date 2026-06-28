@@ -12,7 +12,8 @@
   },
   "brand": {
     "name": "The Pouma Academy",
-    "tagline": "Your voice, revealed"
+    "tagline": "Your voice, revealed",
+    "sparkle": "Speak · Lead · Shine"
   },
   "nav": {
     "home": "Home",
@@ -26,9 +27,9 @@
   "hero": {
     "motto": "Speak English the way you dream",
     "tagline": "Boutique Transformation Academy",
-    "headline1": "Professional",
-    "headline2": "English",
-    "headline3": "with confidence.",
+    "headline1": "Not just",
+    "headline2": "English lessons.",
+    "headline3": "Confidence coaching.",
     "subtext": "We don't teach English. We unlock expression, confidence, and professional presence.",
     "cta1": "Begin Your Journey",
     "cta2": "View Programs",
