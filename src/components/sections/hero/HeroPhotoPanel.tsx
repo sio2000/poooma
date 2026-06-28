@@ -26,7 +26,7 @@ export default function HeroPhotoPanel() {
           photo's natural ratio at a larger size, so it reaches further down
           the column while the whole image still always shows, never cropped. */}
       <div className="relative w-full">
-        <div className="relative w-full aspect-[128/229] rounded-[2rem] overflow-hidden shadow-strong ring-1 ring-lav-200/50">
+        <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-strong ring-1 ring-lav-200/50">
           <Image
             src="/newherosectionpik.png"
             alt={`${founderName} — The Pouma Academy`}
